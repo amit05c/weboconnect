@@ -21,14 +21,14 @@ const useApi = (url, method = 'GET') => {
       });
      
       if (response.status == 400) {
-        throw new Error('User already registered');
+        const responseData = await response.json();
+        throw new Error(responseData.msg);
       }
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
       
       const responseData = await response.json();
-      console.log("response is >>>>>>>>>>",responseData)
       setData(responseData);
       setIsSuccess(true);
       return responseData
