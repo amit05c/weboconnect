@@ -199,20 +199,20 @@ export default function FeedPage() {
                     onChange={(e) => setNewPostContent(e.target.value)}
                     required
                     className="w-full p-2 border rounded-md mb-4"
-                    disabled={Loading} // Disable while loading
+                    disabled={Loading}
                 />
                 <input
                     type="file"
                     accept="image/*"
                     onChange={(e) => setImage(e.target.files[0])}
                     className="mb-4"
-                    disabled={Loading} // Disable while loading
+                    disabled={Loading} 
                 />
                 <div className="flex justify-between">
                     <button
                         type="submit"
                         className="py-2 px-4 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 transition duration-200"
-                        disabled={Loading} // Disable button while loading
+                        disabled={Loading}
                     >
                         {Loading ? 'Creating...' : 'Create Post'}
                     </button>
@@ -220,7 +220,7 @@ export default function FeedPage() {
                         type="button"
                         onClick={() => setIsModalOpen(false)}
                         className="py-2 px-4 font-semibold bg-gray-200 rounded-md hover:bg-gray-300 transition duration-200"
-                        disabled={Loading} // Disable cancel button while loading
+                        disabled={Loading}
                     >
                         Cancel
                     </button>

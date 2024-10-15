@@ -50,7 +50,6 @@ export default function PostPage() {
     }
   };
 
-  // Handle like functionality
   const handleLike = async () => {
     const authToken = Cookies.get('token');
 
@@ -69,7 +68,6 @@ export default function PostPage() {
     }
   };
 
-  // Handle follow functionality
   const handleFollow = async () => {
     const authToken = Cookies.get('token');
     try {

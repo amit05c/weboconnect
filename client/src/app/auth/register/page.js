@@ -10,10 +10,9 @@ export default function RegisterPage() {
   const [validationError, setValidationError] = useState('');
   const router = useRouter();
 
-  // Get the sendData function from the custom hook, but don't trigger it yet
   const { sendData, loading, error, isSuccess } = useApi(`/users/register`, 'POST');
 
-  // Email validation regex
+ 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -21,7 +20,7 @@ export default function RegisterPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setValidationError(''); // Clear validation error before new submission
+    setValidationError(''); 
 
     // Email and password validation
     if (!validateEmail(email)) {
@@ -34,14 +33,14 @@ export default function RegisterPage() {
       return;
     }
 
-    // Set username to email and call API
+    
     const body = { username: email, email, password };
     
    const res= await sendData(body);
 
     if (res) {
       alert('Registration successful');
-      router.push('/auth/login'); // Redirect to login page
+      router.push('/auth/login');
     } else if (error) {
       alert('Registration failed');
     }
@@ -73,7 +72,6 @@ export default function RegisterPage() {
             />
           </div>
 
-          {/* Display validation errors if any */}
           {validationError && (
             <p className="mb-4 text-red-500 text-center">{validationError}</p>
           )}
@@ -89,7 +87,6 @@ export default function RegisterPage() {
           </button>
         </form>
 
-        {/* Show error if API request fails */}
         {error && <p className="mt-4 text-red-500 text-center">Error: {error}</p>}
         
         <p className="mt-4 text-center text-gray-600">
